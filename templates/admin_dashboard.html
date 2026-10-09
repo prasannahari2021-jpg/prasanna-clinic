@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Prasanna Pet Care Clinic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-[#0B1320] text-gray-200">
+    <div class="flex min-h-screen">
+        <aside class="w-72 border-r border-gray-800 bg-[#131F33] p-6">
+            <div class="mb-8">
+                <h1 class="text-xl font-bold text-white">Prasanna Clinic</h1>
+                <p class="text-sm text-emerald-400">Admin Panel</p>
+            </div>
+            <nav class="space-y-2">
+                <a href="/admin/dashboard" class="block rounded-xl bg-emerald-500/20 px-4 py-3 font-semibold text-emerald-400">Dashboard</a>
+                <a href="/admin/appointments" class="block rounded-xl px-4 py-3 font-semibold text-gray-300 hover:bg-[#1A2942]">Appointments</a>
+                <a href="/" target="_blank" class="block rounded-xl px-4 py-3 font-semibold text-gray-300 hover:bg-[#1A2942]">Open Client Website</a>
+                <a href="/admin/logout" class="block rounded-xl px-4 py-3 font-semibold text-gray-300 hover:bg-[#1A2942]">Logout</a>
+            </nav>
+        </aside>
+        <main class="flex-1 p-8">
+            <div class="mb-8 flex items-center justify-between">
+                <div>
+                    <h2 class="text-3xl font-bold text-white">Dashboard</h2>
+                    <p class="text-sm text-gray-400">Live overview of clinic appointments</p>
+                </div>
+            </div>
+            <div class="grid gap-4 md:grid-cols-5">
+                <div class="rounded-2xl border border-gray-800 bg-[#131F33] p-5">
+                    <p class="text-sm text-gray-400">Total</p>
+                    <p class="mt-2 text-2xl font-bold text-white">{{ stats.total }}</p>
+                </div>
+                <div class="rounded-2xl border border-gray-800 bg-[#131F33] p-5">
+                    <p class="text-sm text-gray-400">Today</p>
+                    <p class="mt-2 text-2xl font-bold text-white">{{ stats.today }}</p>
+                </div>
+                <div class="rounded-2xl border border-gray-800 bg-[#131F33] p-5">
+                    <p class="text-sm text-gray-400">Pending</p>
+                    <p class="mt-2 text-2xl font-bold text-amber-400">{{ stats.pending }}</p>
+                </div>
+                <div class="rounded-2xl border border-gray-800 bg-[#131F33] p-5">
+                    <p class="text-sm text-gray-400">Completed</p>
+                    <p class="mt-2 text-2xl font-bold text-emerald-400">{{ stats.completed }}</p>
+                </div>
+                <div class="rounded-2xl border border-gray-800 bg-[#131F33] p-5">
+                    <p class="text-sm text-gray-400">Cancelled</p>
+                    <p class="mt-2 text-2xl font-bold text-rose-400">{{ stats.cancelled }}</p>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

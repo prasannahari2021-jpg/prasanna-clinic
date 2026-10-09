@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prasanna Pet Care Clinic - 24/7 Advanced Veterinary Care</title>
+    <meta name="description" content="State-of-the-art veterinary clinic offering 24/7 emergency care, wellness packages, surgery, and diagnostics for dogs, cats, birds, and exotic pets.">
+    
+    <!-- Google Fonts CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Tailwind CSS CDN with Custom Config -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#fff8e6',
+                            100: '#fdeec4',
+                            200: '#f9dd8b',
+                            300: '#f4c95c',
+                            400: '#e9b93c',
+                            500: '#d4a017', // Main Gold Accent
+                            600: '#b88412',
+                            700: '#8f6712',
+                            800: '#6b4d12',
+                            900: '#4a3510',
+                            950: '#2b1f09',
+                        },
+                        darkbg: {
+                            DEFAULT: '#07111E',
+                            card: '#0D1A2B',
+                            surface: '#132338',
+                            border: '#223652'
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Outfit', 'sans-serif'],
+                        body: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'glow': '0 0 25px -5px rgba(212, 160, 23, 0.28)',
+                        'glow-lg': '0 0 42px -6px rgba(212, 160, 23, 0.42)',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: '0.4' },
+                            '50%': { opacity: '0.8' },
+                        }
+                    },
+                    animation: {
+                        'float': 'float 4s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/css">
+        :root {
+            --premium-bg: #07111E;
+            --premium-card: rgba(13, 26, 43, 0.72);
+            --premium-surface: rgba(19, 35, 56, 0.82);
+            --premium-border: rgba(255, 255, 255, 0.08);
+            --premium-gold: #d4a017;
+            --premium-gold-soft: rgba(212, 160, 23, 0.18);
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background:
+                radial-gradient(circle at top left, rgba(212, 160, 23, 0.14), transparent 32%),
+                radial-gradient(circle at top right, rgba(56, 189, 248, 0.10), transparent 28%),
+                radial-gradient(circle at bottom, rgba(15, 23, 42, 0.98), rgba(7, 17, 30, 1));
+            background-color: var(--premium-bg);
+            color: #F3F4F6;
+        }
+        /* Keep the dark theme readable without stark pure-white text. */
+        .text-white {
+            color: #E5E7EB !important;
+        }
+        ::selection {
+            background: var(--premium-gold);
+            color: var(--premium-bg);
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Outfit', sans-serif;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background-image: radial-gradient(rgba(255,255,255,0.035) 1px, transparent 1px);
+            background-size: 28px 28px;
+            opacity: 0.12;
+            mix-blend-mode: screen;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #07111E;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #f4c95c, #b88412);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #fdeec4, #d4a017);
+        }
+        /* Glassmorphic utilities */
+        .glass-panel {
+            background: var(--premium-card);
+            backdrop-filter: blur(20px) saturate(140%);
+            -webkit-backdrop-filter: blur(20px) saturate(140%);
+            border: 1px solid var(--premium-border);
+        }
+        .glass-card {
+            background: var(--premium-surface);
+            backdrop-filter: blur(18px) saturate(135%);
+            -webkit-backdrop-filter: blur(18px) saturate(135%);
+            border: 1px solid rgba(212, 160, 23, 0.14);
+        }
+        .glass-card:hover {
+            border-color: rgba(212, 160, 23, 0.36);
+            box-shadow: 0 14px 40px -12px rgba(212, 160, 23, 0.28);
+        }
+        /* Section transition support */
+        .spa-section {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .spa-section.active {
+            display: block;
+            opacity: 1;
+        }
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .soft-grid {
+            background-image:
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px),
+                radial-gradient(circle at center, rgba(255,255,255,0.02), transparent 55%);
+            background-size: 34px 34px, 34px 34px, cover;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col antialiased text-gray-200 bg-darkbg selection:bg-brand-500 selection:text-gray-900 soft-grid">
+
+    <!-- HEADER / NAVIGATION BAR -->
+    <header class="sticky top-0 z-50 glass-panel border-b border-gray-800/60 transition-all duration-300" id="main-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="navigateToSection('home')">
+                    <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-brand-600 to-brand-400 flex items-center justify-center shadow-glow text-darkbg text-2xl font-black">
+                        <i class="fa-solid fa-paw"></i>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-extrabold tracking-tight text-white font-heading">Prasanna</span>
+                        <span class="text-xs block text-brand-400 font-medium tracking-wider uppercase">Pet Care Clinic</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                    <button onclick="navigateToSection('home')" id="nav-btn-home" class="nav-link px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 text-brand-400 bg-brand-500/10 border border-brand-500/30">
+                        <i class="fa-solid fa-house mr-1.5"></i> Home
+                    </button>
+                    <button onclick="navigateToSection('catalog')" id="nav-btn-catalog" class="nav-link px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 text-gray-300 hover:text-white hover:bg-darkbg-surface">
+                        <i class="fa-solid fa-stethoscope mr-1.5"></i> Services & Catalog
+                    </button>
+                    <button onclick="navigateToSection('booking')" id="nav-btn-booking" class="nav-link px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 text-gray-300 hover:text-white hover:bg-darkbg-surface">
+                        <i class="fa-solid fa-calendar-check mr-1.5"></i> Book Appointment
+                    </button>
+                    <button onclick="navigateToSection('about')" id="nav-btn-about" class="nav-link px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 text-gray-300 hover:text-white hover:bg-darkbg-surface">
+                        <i class="fa-solid fa-hospital-user mr-1.5"></i> About Us
+                    </button>
+                    <button type="button" onclick="openAppointmentHistory()" id="nav-btn-history" class="nav-link px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 text-gray-300 hover:text-white hover:bg-darkbg-surface border border-gray-700/60">
+                        <i class="fa-solid fa-history mr-1.5"></i> Appointment History
+                    </button>
+                    <button onclick="goToAdminLogin()" class="px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 text-gray-300 hover:text-white hover:bg-darkbg-surface border border-gray-700/60">
+                        <i class="fa-solid fa-lock mr-1.5"></i> Admin
+                    </button>
+                </nav>
+
+                <!-- Emergency Call & CTA Button -->
+                <div class="hidden sm:flex items-center space-x-4">
+                    <a href="tel:+919342301937" class="flex items-center space-x-2 text-xs font-semibold text-rose-400 bg-rose-500/10 border border-rose-500/20 px-3 py-2 rounded-xl hover:bg-rose-500/20 transition-all">
+                        <span class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
+                        <span>Emergency: +91 9342301937</span>
+                    </a>
+                    <button onclick="navigateToSection('booking')" class="bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-400 hover:to-brand-500 text-darkbg font-bold px-5 py-2.5 rounded-xl shadow-glow transition-all duration-300 transform hover:-translate-y-0.5 text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-calendar-check text-lg"></i>
+                        <span>Book Now</span>
+                    </button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="p-2.5 rounded-xl text-gray-300 hover:text-white bg-darkbg-surface border border-gray-800">
+                        <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div class="md:hidden hidden bg-darkbg-card border-b border-gray-800 px-4 pt-2 pb-6 space-y-2" id="mobile-menu">
+            <button onclick="navigateToSection('home')" class="w-full text-left px-4 py-3 rounded-xl text-base font-semibold text-brand-400 bg-brand-500/10 flex items-center justify-between">
+                <span><i class="fa-solid fa-house w-6"></i> Home</span>
+                <i class="fa-solid fa-chevron-right text-xs"></i>
+            </button>
+            <button onclick="navigateToSection('catalog')" class="w-full text-left px-4 py-3 rounded-xl text-base font-semibold text-gray-300 hover:bg-darkbg-surface flex items-center justify-between">
+                <span><i class="fa-solid fa-stethoscope w-6"></i> Services Catalog</span>
+                <i class="fa-solid fa-chevron-right text-xs"></i>
+            </button>
+            <button onclick="navigateToSection('booking')" class="w-full text-left px-4 py-3 rounded-xl text-base font-semibold text-gray-300 hover:bg-darkbg-surface flex items-center justify-between">
+                <span><i class="fa-solid fa-calendar-check w-6"></i> Book Appointment</span>
+                <i class="fa-solid fa-chevron-right text-xs"></i>
+            </button>
+            <button onclick="navigateToSection('about')" class="w-full text-left px-4 py-3 rounded-xl text-base font-semibold text-gray-300 hover:bg-darkbg-surface flex items-center justify-between">
+                <span><i class="fa-solid fa-hospital-user w-6"></i> About Clinic</span>
+                <i class="fa-solid fa-chevron-right text-xs"></i>
+            </button>
+            <div class="pt-4 border-t border-gray-800/80 space-y-3">
+                <a href="tel:+919342301937" class="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 font-bold text-sm">
+                    <i class="fa-solid fa-phone-flip"></i> Call 24/7 Hotline
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="flex-grow">
+
+        <!-- ========================================== -->
+        <!-- SECTION 1: HERO / HOME SECTION             -->
+        <!-- ========================================== -->
+        <section id="sec-home" class="spa-section active">
+            <!-- Hero Top Banner -->
+            <div class="relative overflow-hidden pt-12 pb-20 lg:pt-20 lg:pb-28">
+                <!-- Background Ambient Glows -->
+                <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-500/15 rounded-full blur-[140px] pointer-events-none"></div>
+                <div class="absolute bottom-0 right-10 w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center reveal-on-scroll">
+                        
+                        <!-- Hero Left Text Column -->
+                        <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                            
+                            <!-- Status Pill -->
+                            <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full glass-card border-brand-500/30 text-xs font-semibold tracking-wide text-brand-300">
+                                <span class="relative flex h-2.5 w-2.5">
+                                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+                                  <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-500"></span>
+                                </span>
+                                <span>24/7 Emergency Pet Clinic & ICU Available</span>
+                                <span class="bg-brand-500/20 text-brand-300 px-2 py-0.5 rounded-full text-[10px] uppercase font-bold">Open Today</span>
+                            </div>
+
+                            <!-- Headline -->
+                            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15]">
+                                World-Class Care for Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-emerald-300 to-cyan-400">Furriest Family</span> Members.
+                            </h1>
+
+                            <!-- Subheadline -->
+                            <p class="text-lg sm:text-xl text-gray-300 font-normal max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                                From routine wellness checkups & vaccinations to emergency trauma surgery and exotic pet care. Experience gentle, advanced veterinary care led by certified specialists.
+                            </p>
+
+                            <!-- CTA Buttons -->
+                            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                                <button onclick="navigateToSection('booking')" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-400 hover:to-brand-500 text-darkbg font-extrabold text-base shadow-glow-lg transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-3">
+                                    <i class="fa-solid fa-calendar-check text-xl"></i>
+                                    <span>Book Consultation Now</span>
+                                </button>
+                                <button onclick="navigateToSection('catalog')" class="w-full sm:w-auto px-8 py-4 rounded-2xl glass-card hover:bg-darkbg-surface text-white font-bold text-base border border-gray-700 hover:border-brand-500/50 transition-all duration-300 flex items-center justify-center gap-3">
+                                    <i class="fa-solid fa-list-check text-brand-400 text-xl"></i>
+                                    <span>Explore All Services</span>
+                                </button>
+                            </div>
+
+                            <!-- Trust Indicators / Features Checklist -->
+                            <div class="pt-6 border-t border-gray-800/80 grid grid-cols-2 sm:grid-cols-3 gap-4 text-left">
+                                <div class="flex items-center space-x-2.5">
+                                    <div class="w-7 h-7 rounded-lg bg-brand-500/20 text-brand-400 flex items-center justify-center text-sm font-bold">
+                                        <i class="fa-solid fa-shield-halved"></i>
+                                    </div>
+                                    <span class="text-xs font-semibold text-gray-300">ISO Certified Lab</span>
+                                </div>
+                                <div class="flex items-center space-x-2.5">
+                                    <div class="w-7 h-7 rounded-lg bg-brand-500/20 text-brand-400 flex items-center justify-center text-sm font-bold">
+                                        <i class="fa-solid fa-user-doctor"></i>
+                                    </div>
+                                    <span class="text-xs font-semibold text-gray-300">15+ Pet Specialists</span>
+                                </div>
+                                <div class="flex items-center space-x-2.5 col-span-2 sm:col-span-1">
+                                    <div class="w-7 h-7 rounded-lg bg-brand-500/20 text-brand-400 flex items-center justify-center text-sm font-bold">
+                                        <i class="fa-solid fa-truck-medical"></i>
+                                    </div>
+                                    <span class="text-xs font-semibold text-gray-300">Pet Ambulance</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hero Right Visual Card Stack -->
+                        <div class="lg:col-span-5 relative">
+                            <!-- Main Hero Image Card -->
+                            <div class="relative rounded-3xl overflow-hidden glass-card p-3 shadow-2xl border-brand-500/20 group">
+                                <div class="relative rounded-2xl overflow-hidden aspect-[4/3]">
+                                    <img 
+                                        id="hero-image"
+                                        src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'%3E%3Crect width='1200' height='800' fill='%231A2942'/%3E%3C/svg%3E" 
+                                        alt="Veterinarian examining dog with stethoscope" 
+                                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                                        onerror="handleImgError(this, 'vet-hero')"
+                                    >
+                                    <div class="absolute inset-0 bg-gradient-to-t from-darkbg via-transparent to-transparent opacity-80"></div>
+                                    <div class="absolute bottom-4 left-4 right-4 p-4 rounded-xl glass-panel border-gray-700/50">
+                                        <p class="text-xs font-bold text-brand-400 uppercase tracking-widest">Specialized Veterinary Care</p>
+                                        <p class="text-sm font-bold text-white">Full Digital Diagnostics & Surgery Suite</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Floating Badge 1: Rating -->
+                            <div class="absolute -top-6 -left-6 hidden sm:flex items-center gap-3 p-4 rounded-2xl glass-panel border border-brand-500/30 shadow-glow animate-float">
+                                <div class="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-xl">
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <div>
+                                    <div class="flex text-amber-400 text-xs gap-1">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="text-xs font-bold text-white mt-0.5">4.9/5 Rating (1,200+ Reviews)</p>
+                                </div>
+                            </div>
+
+                            <!-- Floating Badge 2: Appointment Support -->
+                            <div class="absolute -bottom-6 -right-4 hidden sm:flex items-center gap-3 p-4 rounded-2xl glass-panel border border-brand-500/30 shadow-glow">
+                                <div class="w-10 h-10 rounded-xl bg-brand-500 text-darkbg flex items-center justify-center text-xl font-bold">
+                                    <i class="fa-solid fa-calendar-check"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-400">Appointment Desk</p>
+                                    <p class="text-xs font-extrabold text-white">Token Booking</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Stat Highlight Cards Grid -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 mb-16 relative z-20">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-6 reveal-on-scroll">
+                    <div class="glass-card p-6 rounded-2xl text-center border-gray-800">
+                        <div class="text-3xl lg:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-emerald-200">18,500+</div>
+                        <div class="text-xs sm:text-sm font-medium text-gray-400 mt-1">Happy Pets Treated</div>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl text-center border-gray-800">
+                        <div class="text-3xl lg:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-cyan-300">99.8%</div>
+                        <div class="text-xs sm:text-sm font-medium text-gray-400 mt-1">Surgical Success Rate</div>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl text-center border-gray-800">
+                        <div class="text-3xl lg:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-emerald-200">15+</div>
+                        <div class="text-xs sm:text-sm font-medium text-gray-400 mt-1">Certified Vets & Surgeons</div>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl text-center border-gray-800">
+                        <div class="text-3xl lg:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-amber-300">24/7</div>
+                        <div class="text-xs sm:text-sm font-medium text-gray-400 mt-1">Emergency Trauma Desk</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Animal Category Shortcuts -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 border-t border-gray-800/60">
+                <div class="text-center max-w-2xl mx-auto mb-10 reveal-on-scroll">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">Care Tailored For Every Species</h2>
+                    <p class="text-sm text-gray-400 mt-2">Click any animal category to filter our dedicated medical services.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 reveal-on-scroll">
+                    <!-- Dog Card -->
+                    <div onclick="filterCatalogFromHome('dogs')" class="glass-card p-6 rounded-2xl flex items-center space-x-5 cursor-pointer group transition-all duration-300 hover:-translate-y-1">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-500/20 to-brand-500/20 text-amber-400 text-3xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-dog"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white group-hover:text-brand-400 transition-colors">Dogs & Canines 🐕</h3>
+                            <p class="text-xs text-gray-400 mt-1">Vaccinations, orthopedics, dental scaling & grooming.</p>
+                            <span class="text-xs font-bold text-brand-400 mt-2 inline-flex items-center gap-1">View Dog Care <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- Cat Card -->
+                    <div onclick="filterCatalogFromHome('cats')" class="glass-card p-6 rounded-2xl flex items-center space-x-5 cursor-pointer group transition-all duration-300 hover:-translate-y-1">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-brand-500/20 text-cyan-400 text-3xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-cat"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white group-hover:text-brand-400 transition-colors">Cats & Felines 🐱</h3>
+                            <p class="text-xs text-gray-400 mt-1">Stress-free feline ward, blood panels & coat spa.</p>
+                            <span class="text-xs font-bold text-brand-400 mt-2 inline-flex items-center gap-1">View Cat Care <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                        </div>
+                    </div>
+
+                    <!-- All Animals Card -->
+                    <div onclick="filterCatalogFromHome('all')" class="glass-card p-6 rounded-2xl flex items-center space-x-5 cursor-pointer group transition-all duration-300 hover:-translate-y-1">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-brand-500/20 to-emerald-500/20 text-brand-400 text-3xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-dove"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-white group-hover:text-brand-400 transition-colors">Birds & All Pets 🦜</h3>
+                            <p class="text-xs text-gray-400 mt-1">Avian health check, rodents, rabbits & exotic medicine.</p>
+                            <span class="text-xs font-bold text-brand-400 mt-2 inline-flex items-center gap-1">View All Animal Services <i class="fa-solid fa-arrow-right text-[10px]"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- SECTION 2: ITEM / SERVICE CATALOG SECTION -->
+        <!-- ========================================== -->
+        <section id="sec-catalog" class="spa-section py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Section Header -->
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 text-brand-400 text-xs font-bold uppercase tracking-wider mb-2">
+                            <i class="fa-solid fa-stethoscope"></i> Comprehensive Veterinary Services
+                        </div>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Pet Services & Medical Catalog</h2>
+                        <p class="text-gray-400 text-sm mt-2 max-w-xl">Browse specialized care treatments for dogs, cats, birds, and all animals with transparent estimates.</p>
+                    </div>
+
+                    <!-- Search Input -->
+                    <div class="relative w-full md:w-80">
+                        <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+                        <input 
+                            type="text" 
+                            id="catalog-search" 
+                            onkeyup="handleCatalogSearch()" 
+                            placeholder="Search service, e.g. Vaccination..."
+                            class="w-full pl-11 pr-4 py-3 rounded-xl bg-darkbg-card border border-gray-800 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-500 transition-colors"
+                        >
+                    </div>
+                </div>
+
+                <!-- Category Filter Tabs -->
+                <div class="flex flex-wrap items-center gap-2 sm:gap-3 mb-8 border-b border-gray-800 pb-4" id="category-filter-bar">
+                    <button onclick="filterCategory('all')" id="filter-btn-all" class="cat-filter-btn px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-200 bg-brand-500 text-darkbg shadow-glow">
+                        <i class="fa-solid fa-border-all mr-1.5"></i> All Pets & Services
+                    </button>
+                    <button onclick="filterCategory('dogs')" id="filter-btn-dogs" class="cat-filter-btn px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-200 bg-darkbg-card border border-gray-800 text-gray-300 hover:text-white hover:border-gray-700">
+                        <i class="fa-solid fa-dog mr-1.5 text-amber-400"></i> For Dogs 🐶
+                    </button>
+                    <button onclick="filterCategory('cats')" id="filter-btn-cats" class="cat-filter-btn px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-200 bg-darkbg-card border border-gray-800 text-gray-300 hover:text-white hover:border-gray-700">
+                        <i class="fa-solid fa-cat mr-1.5 text-cyan-400"></i> For Cats 🐱
+                    </button>
+                    <button onclick="filterCategory('all_animals')" id="filter-btn-all_animals" class="cat-filter-btn px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-200 bg-darkbg-card border border-gray-800 text-gray-300 hover:text-white hover:border-gray-700">
+                        <i class="fa-solid fa-paw mr-1.5 text-brand-400"></i> All Animals 🐾
+                    </button>
+                </div>
+
+                <!-- Catalog Cards Grid (Populated dynamically via JavaScript) -->
+                <div id="catalog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Dynamic Service Cards Inserted Here -->
+                </div>
+
+                <!-- No Results State -->
+                <div id="no-results-msg" class="hidden text-center py-16 bg-darkbg-card rounded-3xl border border-gray-800">
+                    <i class="fa-solid fa-paw text-5xl text-gray-600 mb-4"></i>
+                    <h3 class="text-xl font-bold text-white">No Services Found</h3>
+                    <p class="text-sm text-gray-400 mt-1">Try adjusting your category filter or search keywords.</p>
+                    <button onclick="resetCatalogFilters()" class="mt-4 px-4 py-2 bg-brand-500 text-darkbg rounded-xl font-bold text-xs">Reset Filters</button>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- SECTION 3: INTERACTIVE BOOKING / CONTACT  -->
+        <!-- ========================================== -->
+        <section id="sec-booking" class="spa-section py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                    
+                    <!-- Left Sidebar Info -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 text-brand-400 text-xs font-bold uppercase tracking-wider">
+                            <i class="fa-solid fa-calendar-check"></i> Token-Based Appointment Booking
+                        </div>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Book an Appointment for Your Pet</h2>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            Fill in your pet's details below. Your submission will be saved securely and assigned a unique appointment token for clinic check-in.
+                        </p>
+
+                        <!-- Contact Quick Box -->
+                        <div class="glass-card p-6 rounded-2xl space-y-4 border-brand-500/30">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-xl bg-brand-500/20 text-brand-400 flex items-center justify-center text-lg flex-shrink-0">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs text-gray-400 uppercase font-semibold">Direct Desk & Emergency</h4>
+                                    <p class="text-base font-bold text-white mt-0.5">+91 9342301937</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4 pt-3 border-t border-gray-800">
+                                <div class="w-10 h-10 rounded-xl bg-brand-500/20 text-brand-400 flex items-center justify-center text-lg flex-shrink-0">
+                                    <i class="fa-solid fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs text-gray-400 uppercase font-semibold">Working Hours</h4>
+                                    <p class="text-sm font-bold text-white mt-0.5">Mon - Sun: 8:00 AM - 10:00 PM</p>
+                                    <p class="text-xs text-rose-400 mt-0.5 font-medium">Emergency Care: 24 Hours Active</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4 pt-3 border-t border-gray-800">
+                                <div class="w-10 h-10 rounded-xl bg-brand-500/20 text-brand-400 flex items-center justify-center text-lg flex-shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xs text-gray-400 uppercase font-semibold">Clinic Location</h4>
+                                    <p class="text-sm font-semibold text-gray-200 mt-0.5">#42 Pet Health Avenue, Main City Hub</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Right Booking Form Card -->
+                    <div class="lg:col-span-7 glass-card p-6 sm:p-8 rounded-3xl border-gray-800">
+                        <form id="pet-booking-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                            <h3 class="text-xl font-bold text-white flex items-center gap-2 pb-4 border-b border-gray-800">
+                                <i class="fa-solid fa-paw text-brand-400"></i> Appointment Details
+                            </h3>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="owner_name" class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Owner Name *</label>
+                                    <input type="text" id="owner_name" required placeholder="e.g. John Doe" class="w-full px-4 py-3 rounded-xl bg-darkbg-card border border-gray-800 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-500">
+                                </div>
+                                <div>
+                                    <label for="owner_mobile" class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Mobile Number *</label>
+                                    <input type="tel" id="owner_mobile" required placeholder="e.g. +91 9876543210" class="w-full px-4 py-3 rounded-xl bg-darkbg-card border border-gray-800 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-500">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="owner_email" class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Email (Optional)</label>
+                                    <input type="email" id="owner_email" placeholder="e.g. john@example.com" class="w-full px-4 py-3 rounded-xl bg-darkbg-card border border-gray-800 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-500">
+                                </div>
+                                <div>
+                                    <label for="pet_name" class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Pet Name *</label>
+                                    <input type="text" id="pet_name" required placeholder="e.g. Bruno" class="w-full px-4 py-3 rounded-xl bg-darkbg-card border border-gray-800 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-500">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="pet_type" class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Pet Type *</label>
+                                    <input type="text" id="pet_type" required placeholder="e.g. Dog / Cat / Rabbit" class="w-full px-4 py-3 rounded-xl bg-darkbg-card border border-gray-800 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-500">
+                                </div>
+                                <div>
+                                    <label for="breed" class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Breed *</label>
+                                    <input type="text" id="breed" required placeholder="e.g. Labrador" class="w-full px-4 py-3 rounded-xl bg-darkbg-card border border-gray-800 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-500">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="age" class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Age *</label>
+                                    <input type="text" id="age" required placeholder="e.g. 3 years" class="w-full px-4 py-3 rounded-xl bg-darkbg-card border border-gray-800 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-500">
+                                </div>
+                                <div>
+                                    <label for="gender" class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Gender *</label>
+                                    <input type="text" id="gender" required placeholder="e.g. Male / Female" class="w-full px-4 py-3 rounded-xl bg-darkbg-card border border-gray-800 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-500">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="weight" class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Weight *</label>
+                                    <input type="text" id="weight" required placeholder="e.g. 18 kg" class="w-full px-4 py-3 rounded-xl bg-darkbg-card border border-gray-800 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-500">
+                                </div>
+                                <div>
+                                    <label for="service" class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Required Service *</label>
+                                    <input type="text" id="service" required placeholder="e.g. Wellness Check" class="w-full px-4 py-3 rounded-xl bg-darkbg-card border border-gray-800 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-500">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="booking_date" class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Appointment Date *</label>
+                                    <input type="date" id="booking_date" required class="w-full px-3 py-3 rounded-xl bg-darkbg-card border border-gray-800 text-sm text-white focus:outline-none focus:border-brand-500">
+                                </div>
+                                <div>
+                                    <label for="booking_time" class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Appointment Time *</label>
+                                    <input type="time" id="booking_time" required class="w-full px-3 py-3 rounded-xl bg-darkbg-card border border-gray-800 text-sm text-white focus:outline-none focus:border-brand-500">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="booking_notes" class="block text-xs font-bold text-gray-300 uppercase tracking-wider mb-2">Symptoms / Notes</label>
+                                <textarea id="booking_notes" rows="3" placeholder="Describe any symptoms or shared notes..." class="w-full px-4 py-3 rounded-xl bg-darkbg-card border border-gray-800 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-brand-500"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 rounded-2xl bg-gradient-to-r from-brand-500 to-brand-600 hover:from-brand-400 hover:to-brand-500 text-darkbg font-extrabold text-base shadow-glow-lg transition-all duration-300 flex items-center justify-center gap-3 cursor-pointer">
+                                <i class="fa-solid fa-calendar-check text-xl"></i>
+                                <span>Book Appointment</span>
+                            </button>
+                        </form>
+                        <div id="booking-result" class="mt-6 hidden rounded-2xl border border-emerald-500/30 bg-emerald-500/10 p-5 text-sm text-emerald-300"></div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ========================================== -->
+        <!-- SECTION 4: ABOUT / HIGHLIGHTS SECTION      -->
+        <!-- ========================================== -->
+        <section id="sec-about" class="spa-section py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- About Intro Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 text-brand-400 text-xs font-bold uppercase tracking-wider">
+                        <i class="fa-solid fa-hospital"></i> About Prasanna Pet Clinic
+                    </div>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold text-white">Dedicated To Preserving The Joy of Healthy Pets</h2>
+                    <p class="text-gray-300 text-base leading-relaxed">
+                        Founded with a mission to bring compassionate, cutting-edge veterinary healthcare under one roof. Our clinic is equipped with advanced ICU suites, digital X-rays, ultrasound, and dedicated sterile surgical operating theaters.
+                    </p>
+                </div>
+
+                <!-- 4 Highlight Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                    <div class="glass-card p-6 rounded-2xl border-gray-800 space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-brand-500/20 text-brand-400 text-2xl flex items-center justify-center">
+                            <i class="fa-solid fa-microscope"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">In-House Pathology</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed">Complete blood count, biochemistry, and PCR diagnostics within 30 minutes for quick treatment decisions.</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl border-gray-800 space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-brand-500/20 text-brand-400 text-2xl flex items-center justify-center">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Overnight ICU Care</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed">24-hour oxygen therapy, fluid monitoring, and continuous vital signs supervision for critical post-op pets.</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl border-gray-800 space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-brand-500/20 text-brand-400 text-2xl flex items-center justify-center">
+                            <i class="fa-solid fa-scissors"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Advanced Surgery</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed">Orthopedic bone plating, spay/neuter, soft tissue procedures with inhalation anesthesia monitoring.</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl border-gray-800 space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-brand-500/20 text-brand-400 text-2xl flex items-center justify-center">
+                            <i class="fa-solid fa-feather"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Exotic Pet Care</h3>
+                        <p class="text-xs text-gray-400 leading-relaxed">Specialized avian, rabbit, rodent, and reptile handling by certified exotic animal practitioners.</p>
+                    </div>
+                </div>
+
+                <!-- Meet Our Doctors Section -->
+                <div class="pt-8 border-t border-gray-800">
+                    <div class="text-center max-w-2xl mx-auto mb-12">
+                        <h3 class="text-2xl sm:text-3xl font-extrabold text-white">Meet Our Specialist Veterinary Doctors</h3>
+                        <p class="text-xs text-gray-400 mt-2">Compassionate experts with over a decade of clinical excellence.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Vet 1 -->
+                        <div class="glass-card rounded-2xl overflow-hidden group reveal-on-scroll">
+                            <div class="h-64 overflow-hidden relative">
+                                <img 
+                                    id="doctor-1-image"
+                                    src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'%3E%3Crect width='1200' height='800' fill='%231A2942'/%3E%3C/svg%3E"
+                                    alt="Dr. Sumathi" 
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    onerror="handleImgError(this, 'vet-doc1')"
+                                >
+                                <div class="absolute inset-0 bg-gradient-to-t from-darkbg-card via-transparent to-transparent opacity-90"></div>
+                                <div class="absolute bottom-3 left-4">
+                                    <span class="bg-brand-500/20 text-brand-300 text-[10px] font-bold uppercase px-2.5 py-1 rounded-md border border-brand-500/30">Chief Veterinary Surgeon</span>
+                                </div>
+                            </div>
+                            <div class="p-6 space-y-2">
+                                <h4 class="text-lg font-bold text-white">Dr. Sumathi, BVS & AH</h4>
+                                <p class="text-xs text-gray-400">12+ Years Experience • Canine Orthopedics & Soft Tissue Surgery</p>
+                            </div>
+                        </div>
+
+                        <!-- Vet 2 -->
+                        <div class="glass-card rounded-2xl overflow-hidden group reveal-on-scroll">
+                            <div class="h-64 overflow-hidden relative">
+                                <img 
+                                    id="doctor-2-image"
+                                    src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'%3E%3Crect width='1200' height='800' fill='%231A2942'/%3E%3C/svg%3E" 
+                                    alt="Dr. Hari Prasanna" 
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    onerror="handleImgError(this, 'vet-doc2')"
+                                >
+                                <div class="absolute inset-0 bg-gradient-to-t from-darkbg-card via-transparent to-transparent opacity-90"></div>
+                                <div class="absolute bottom-3 left-4">
+                                    <span class="bg-cyan-500/20 text-cyan-300 text-[10px] font-bold uppercase px-2.5 py-1 rounded-md border border-cyan-500/30">Feline & Cardiology Specialist</span>
+                                </div>
+                            </div>
+                            <div class="p-6 space-y-2">
+                                <h4 class="text-lg font-bold text-white">Dr. Hari Prasanna, MVSc</h4>
+                                <p class="text-xs text-gray-400">9+ Years Experience • Cat Internal Medicine & Echocardiography</p>
+                            </div>
+                        </div>
+
+                        <!-- Vet 3 -->
+                        <div class="glass-card rounded-2xl overflow-hidden group reveal-on-scroll">
+                            <div class="h-64 overflow-hidden relative">
+                                <img 
+                                    id="doctor-3-image"
+                                    src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'%3E%3Crect width='1200' height='800' fill='%231A2942'/%3E%3C/svg%3E" 
+                                    alt="Dr. Krishna Moorthi" 
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    onerror="handleImgError(this, 'vet-doc3')"
+                                >
+                                <div class="absolute inset-0 bg-gradient-to-t from-darkbg-card via-transparent to-transparent opacity-90"></div>
+                                <div class="absolute bottom-3 left-4">
+                                    <span class="bg-amber-500/20 text-amber-300 text-[10px] font-bold uppercase px-2.5 py-1 rounded-md border border-amber-500/30">Avian & Exotic Animal Specialist</span>
+                                </div>
+                            </div>
+                            <div class="p-6 space-y-2">
+                                <h4 class="text-lg font-bold text-white">Dr. Krishna Moorthi, MVSc</h4>
+                                <p class="text-xs text-gray-400">8+ Years Experience • Avian Diagnostics, Rodents & Exotic Wildlife</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonials Grid -->
+                <div class="pt-16 mt-16 border-t border-gray-800">
+                    <div class="text-center max-w-2xl mx-auto mb-10 reveal-on-scroll">
+                        <h3 class="text-2xl sm:text-3xl font-extrabold text-white">What Pet Parents Say</h3>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="glass-card p-6 rounded-2xl space-y-3 reveal-on-scroll">
+                            <div class="flex text-amber-400 text-xs gap-1">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-xs text-gray-300 leading-relaxed">"Dr. Ananya saved my Golden Retriever's life during a midnight bloat emergency. The 24/7 ICU staff updated me every hour with clear progress updates. Best pet clinic in town!"</p>
+                            <div class="pt-2 border-t border-gray-800 flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-brand-500/20 text-brand-400 font-bold text-xs flex items-center justify-center">RK</div>
+                                <div>
+                                    <p class="text-xs font-bold text-white">Rohan Kapoor</p>
+                                    <p class="text-[10px] text-gray-400">Dog Parent (Max 🐕)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="glass-card p-6 rounded-2xl space-y-3 reveal-on-scroll">
+                            <div class="flex text-amber-400 text-xs gap-1">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-xs text-gray-300 leading-relaxed">"My cat Luna gets extremely anxious at clinics, but the cat-only quiet examination room made all the difference. Smooth vaccination and dental cleaning!"</p>
+                            <div class="pt-2 border-t border-gray-800 flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-cyan-500/20 text-cyan-400 font-bold text-xs flex items-center justify-center">SN</div>
+                                <div>
+                                    <p class="text-xs font-bold text-white">Sneha Nair</p>
+                                    <p class="text-[10px] text-gray-400">Cat Parent (Luna 🐱)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="glass-card p-6 rounded-2xl space-y-3 reveal-on-scroll">
+                            <div class="flex text-amber-400 text-xs gap-1">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-xs text-gray-300 leading-relaxed">"Finding a vet who actually understands African Grey parrots is hard. Dr. Priya diagnosed a feather plucking issue with precision. Highly recommend!"</p>
+                            <div class="pt-2 border-t border-gray-800 flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-amber-500/20 text-amber-400 font-bold text-xs flex items-center justify-center">VD</div>
+                                <div>
+                                    <p class="text-xs font-bold text-white">Vikram Das</p>
+                                    <p class="text-[10px] text-gray-400">Avian Parent (Mitu 🦜)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+            <!-- ========================================== -->
+            <!-- SECTION 5: APPOINTMENT HISTORY             -->
+            <!-- ========================================== -->
+            <section id="sec-history" class="spa-section py-12">
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="glass-card rounded-3xl p-8 sm:p-10 border-gray-800 space-y-6 reveal-on-scroll">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 text-brand-400 text-xs font-bold uppercase tracking-wider">
+                            <i class="fa-solid fa-clock-rotate-left"></i> Appointment History
+                        </div>
+                        <div class="space-y-3">
+                            <h2 class="text-3xl sm:text-4xl font-extrabold text-white">View past appointments and token status</h2>
+                            <p class="text-sm sm:text-base text-gray-300 max-w-3xl leading-relaxed">
+                                The full appointment history page is available when this clinic app is served through Flask. If you opened the HTML file directly, use the booking section on this page or start the local app server to search by token or mobile number.
+                            </p>
+                        </div>
+
+                        <div class="grid gap-4 sm:grid-cols-2">
+                            <button type="button" onclick="navigateToSection('booking')" class="rounded-2xl bg-gradient-to-r from-brand-500 to-brand-600 px-5 py-3.5 font-bold text-darkbg shadow-glow transition-all duration-300 hover:from-brand-400 hover:to-brand-500">
+                                Book a New Appointment
+                            </button>
+                            <button type="button" onclick="openAppointmentHistory()" class="rounded-2xl border border-gray-700 bg-darkbg-surface px-5 py-3.5 text-center font-bold text-white transition-all duration-300 hover:border-brand-500/50 hover:text-brand-400">
+                                Open History Page
+                            </button>
+                        </div>
+
+                        <div class="rounded-2xl border border-gray-800 bg-darkbg-surface/70 p-5 text-sm text-gray-400">
+                            Search your history on the dedicated page using a token number or mobile number once the app is running on the Flask server.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="bg-darkbg-card border-t border-gray-800/80 pt-12 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-gray-800">
+                
+                <!-- Col 1: Brand Info -->
+                <div class="space-y-4 md:col-span-1">
+                    <div class="flex items-center space-x-3 cursor-pointer" onclick="navigateToSection('home')">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-brand-400 flex items-center justify-center text-darkbg text-xl font-bold">
+                            <i class="fa-solid fa-paw"></i>
+                        </div>
+                        <span class="text-xl font-extrabold text-white font-heading">Prasanna</span>
+                    </div>
+                    <p class="text-xs text-gray-400 leading-relaxed">
+                        Comprehensive veterinary medical center committed to providing compassionate, high-standard healthcare for dogs, cats, birds, and exotic pets.
+                    </p>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div>
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Quick Navigation</h4>
+                    <ul class="space-y-2 text-xs text-gray-400">
+                        <li><button onclick="navigateToSection('home')" class="hover:text-brand-400 transition-colors">Home Page</button></li>
+                        <li><button onclick="navigateToSection('catalog')" class="hover:text-brand-400 transition-colors">Services & Catalog</button></li>
+                        <li><button onclick="navigateToSection('booking')" class="hover:text-brand-400 transition-colors">Book Appointment</button></li>
+                        <li><button onclick="navigateToSection('about')" class="hover:text-brand-400 transition-colors">About Our Vets</button></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Categories -->
+                <div>
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Species Care</h4>
+                    <ul class="space-y-2 text-xs text-gray-400">
+                        <li><button onclick="filterCatalogFromHome('dogs')" class="hover:text-brand-400 transition-colors">Canine / Dog Health 🐶</button></li>
+                        <li><button onclick="filterCatalogFromHome('cats')" class="hover:text-brand-400 transition-colors">Feline / Cat Care 🐱</button></li>
+                        <li><button onclick="filterCatalogFromHome('all_animals')" class="hover:text-brand-400 transition-colors">Avian & Exotic Animals 🦜</button></li>
+                        <li><button onclick="filterCatalogFromHome('all')" class="hover:text-brand-400 transition-colors">Emergency & ICU Surgery 🚨</button></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contact -->
+                <div class="space-y-3">
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4">Direct Contact</h4>
+                    <p class="text-xs text-gray-300 flex items-center gap-2">
+                        <i class="fa-solid fa-calendar-check text-brand-400 text-base"></i>
+                        <span>Appointment Desk: Token Booking</span>
+                    </p>
+                    <p class="text-xs text-gray-300 flex items-center gap-2">
+                        <i class="fa-solid fa-phone text-rose-400"></i>
+                        <span>Emergency: +91 9342301937</span>
+                    </p>
+                    <p class="text-xs text-gray-400 flex items-start gap-2">
+                        <i class="fa-solid fa-location-dot text-brand-400 mt-0.5"></i>
+                        <span>#62 SNS College Coimbatore</span>
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright Bar -->
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+                <p>&copy; 2026 Prasanna Pet Care Clinic. All rights reserved.</p>
+                <div class="flex space-x-4">
+                    <button type="button" onclick="navigateToSection('booking')" class="hover:text-brand-400 transition-colors"><i class="fa-solid fa-calendar-check text-sm"></i> Book Appointment</button>
+                    <button onclick="goToAdminLogin()" class="hover:text-brand-400 transition-colors"><i class="fa-solid fa-lock text-sm"></i> Admin Login</button>
+                    <a href="tel:+919342301937" class="hover:text-brand-400 transition-colors"><i class="fa-solid fa-phone text-sm"></i> Call Helpline</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- AI EMERGENCY ASSISTANT -->
+    <div class="fixed bottom-5 right-5 z-50">
+        <button id="chat-toggle" class="rounded-full bg-emerald-500 p-4 text-2xl text-[#0B1320] shadow-2xl">💬</button>
+        <div id="chat-widget" class="mt-3 hidden w-80 max-w-[90vw] rounded-3xl border border-gray-800 bg-[#131F33] p-4 shadow-2xl">
+            <div class="mb-3 flex items-center justify-between">
+                <div>
+                    <p class="text-sm font-semibold text-white">AI Emergency Assistant</p>
+                    <p class="text-xs text-emerald-400">Pet care guidance</p>
+                </div>
+                <button id="chat-close" class="rounded-full bg-[#1A2942] px-2 py-1 text-sm text-gray-300">✕</button>
+            </div>
+            <div id="chat-messages" class="mb-3 max-h-72 space-y-2 overflow-y-auto rounded-2xl bg-[#0B1320] p-3 text-sm text-gray-300"></div>
+            <div class="grid grid-cols-2 gap-2 text-xs">
+                <button class="quick-reply rounded-xl bg-[#1A2942] px-3 py-2 text-left text-gray-300" data-message="My dog swallowed chocolate.">My dog swallowed chocolate.</button>
+                <button class="quick-reply rounded-xl bg-[#1A2942] px-3 py-2 text-left text-gray-300" data-message="My cat is not eating.">My cat is not eating.</button>
+                <button class="quick-reply rounded-xl bg-[#1A2942] px-3 py-2 text-left text-gray-300" data-message="My puppy has vomiting.">My puppy has vomiting.</button>
+                <button class="quick-reply rounded-xl bg-[#1A2942] px-3 py-2 text-left text-gray-300" data-message="My pet has a fever.">My pet has a fever.</button>
+            </div>
+            <form id="chat-form" class="mt-3 flex gap-2">
+                <input id="chat-input" type="text" placeholder="Ask about your pet" class="w-full rounded-xl border border-gray-700 bg-[#1A2942] px-3 py-2 text-sm text-white" />
+                <button type="submit" class="rounded-xl bg-emerald-500 px-3 py-2 text-sm font-semibold text-[#0B1320]">Send</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- JAVASCRIPT ENGINE & LOGIC                 -->
+    <!-- ========================================== -->
+    <script>
+        // ---------------------------------------------------
+        // 1. DATA STRUCTURE: SERVICES CATALOG JS ARRAY
+        // ---------------------------------------------------
+        const servicesCatalog = [
+            {
+                id: 'srv-1',
+                name: 'Comprehensive Canine Wellness & Checkup',
+                category: 'dogs',
+                categoryLabel: 'For Dogs 🐶',
+                price: '₹799 / $25',
+                image: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=600&q=80',
+                description: 'Full head-to-tail clinical physical examination, weight audit, ear/eye hygiene check, dental screening, and nutritional plan.',
+                features: ['Physical Vital Stats', 'Heart & Lung Auscultation', 'Dental & Skin Audit']
+            },
+            {
+                id: 'srv-2',
+                name: 'Core Dog Vaccination Bundle (7-in-1)',
+                category: 'dogs',
+                categoryLabel: 'For Dogs 🐶',
+                price: '₹1,499 / $45',
+                image: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=600&q=80',
+                description: 'Protection against Rabies, DHPP, Parvovirus, Distemper, and Hepatitis. Includes digital vaccination passport updates.',
+                features: ['DHPPi + Rabies Shield', 'Deworming Dose Included', 'Digital Health Record']
+            },
+            {
+                id: 'srv-3',
+                name: 'Canine Ultrasound Dental Scaling & Polish',
+                category: 'dogs',
+                categoryLabel: 'For Dogs 🐶',
+                price: '₹2,499 / $75',
+                image: 'https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?auto=format&fit=crop&w=600&q=80',
+                description: 'Removal of stubborn tartar and plaque under mild sedation using ultrasonic scaling, followed by fluoride polishing.',
+                features: ['Ultrasonic Scale', 'Subgingival Polish', 'Fresh Breath Treatment']
+            },
+            {
+                id: 'srv-4',
+                name: 'Feline Comprehensive Wellness & Blood Panel',
+                category: 'cats',
+                categoryLabel: 'For Cats 🐱',
+                price: '₹1,299 / $40',
+                image: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=600&q=80',
+                description: 'Stress-free exam designed specifically for cats. Complete Blood Count (CBC), kidney marker screening, and thyroid assessment.',
+                features: ['CBC & Biochemistry', 'Stress-Free Handling', 'Renal Health Check']
+            },
+            {
+                id: 'srv-5',
+                name: 'Cat Triple Vaccine & Deworming Protocol',
+                category: 'cats',
+                categoryLabel: 'For Cats 🐱',
+                price: '₹1,399 / $42',
+                image: 'https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=600&q=80',
+                description: 'Feline Viral Rhinotracheitis, Calicivirus, Panleukopenia (FVRCP) + Anti-Rabies vaccination with broad-spectrum deworming.',
+                features: ['FVRCP + Rabies Shield', 'Internal Parasite Control', 'Gentle Administration']
+            },
+            {
+                id: 'srv-6',
+                name: 'Feline De-matting & Spa Grooming Package',
+                category: 'cats',
+                categoryLabel: 'For Cats 🐱',
+                price: '₹1,899 / $55',
+                image: 'https://images.unsplash.com/photo-1561948955-570b270e7c36?auto=format&fit=crop&w=600&q=80',
+                description: 'Gentle coat de-shedding, nail clipping, sanitary trim, hypoallergenic warm bath, and ear cleaning for short & long-haired breeds.',
+                features: ['Coat De-shedding', 'Nail Trimming', 'Ear Hygiene Spa']
+            },
+            {
+                id: 'srv-7',
+                name: 'Avian & Bird Health Consultation',
+                category: 'all_animals',
+                categoryLabel: 'All Animals 🦜',
+                price: '₹899 / $28',
+                image: 'https://images.unsplash.com/photo-1552728089-57bdde30beb3?auto=format&fit=crop&w=600&q=80',
+                description: 'Beak and feather physical analysis, crop swab analysis, nutritional guidance, and wing/beak trimming for all parrot species & songbirds.',
+                features: ['Feather & Beak Inspection', 'Crop Swab Test', 'Nutrition Blueprint']
+            },
+            {
+                id: 'srv-8',
+                name: 'Exotic Mammal Exam (Rabbits, Hamsters, Guinea Pigs)',
+                category: 'all_animals',
+                categoryLabel: 'All Animals 🐇',
+                price: '₹799 / $25',
+                image: 'https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=600&q=80',
+                description: 'Specialized dental occlusion check, GI stasis screening, parasite check, and diet consultation for small exotic pocket pets.',
+                features: ['Dental Occlusion Check', 'GI Stasis Screen', 'Parasite Prevention']
+            },
+            {
+                id: 'srv-9',
+                name: '24/7 Emergency Trauma & Critical ICU Care',
+                category: 'all_animals',
+                categoryLabel: 'All Animals 🚨',
+                price: '₹2,999 / $90',
+                image: 'https://images.unsplash.com/photo-1576201836106-db1758fd1c97?auto=format&fit=crop&w=600&q=80',
+                description: 'Immediate stabilization for toxic ingestions, vehicle accidents, breathing distress, and acute pain with oxygen cage therapy.',
+                features: ['Immediate Vet Triage', 'Oxygen & IV Fluids', '24/7 Vital Monitoring']
+            },
+            {
+                id: 'srv-10',
+                name: 'Soft Tissue & Orthopedic Surgery Consultation',
+                category: 'all_animals',
+                categoryLabel: 'All Animals 🩺',
+                price: '₹1,999 / $60',
+                image: 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=600&q=80',
+                description: 'Pre-surgical digital X-ray evaluation, spay/neuter counseling, fracture plating assessment, and lump biopsy.',
+                features: ['Digital X-Ray Review', 'Anesthesia Risk Audit', 'Surgical Planning']
+            },
+            {
+                id: 'srv-11',
+                name: 'Microchipping & International Health Passport',
+                category: 'all_animals',
+                categoryLabel: 'All Animals 🐾',
+                price: '₹1,199 / $35',
+                image: 'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=600&q=80',
+                description: 'ISO-compliant RFID microchip implantation with lifetime global database registry and travel health clearance documentation.',
+                features: ['ISO 11784 Microchip', 'Lifetime Registry', 'Travel Certificate']
+            },
+            {
+                id: 'srv-12',
+                name: 'Pet Allergy & Dermatology Allergy Testing',
+                category: 'dogs',
+                categoryLabel: 'For Dogs & Cats 🐶🐱',
+                price: '₹1,599 / $48',
+                image: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=600&q=80',
+                description: 'Cytology skin scrape, fungal culture, and food allergy elimination trial for pets suffering from chronic itching and hair loss.',
+                features: ['Skin Cytology Scrape', 'Fungal & Bacterial Culture', 'Custom Diet Plan']
+            }
+        ];
+
+        // Global State variables
+        let currentSection = 'home';
+        let activeCategoryFilter = 'all';
+        let searchQuery = '';
+
+        // ---------------------------------------------------
+        // 2. INITIALIZATION & NAVIGATION LOGIC
+        // ---------------------------------------------------
+        document.addEventListener('DOMContentLoaded', () => {
+            applyPageArtwork();
+
+            // Render catalog items initial load
+            renderCatalog();
+            
+            // Populate form service dropdown
+            populateServiceDropdown('dogs');
+
+            // Set default date picker to today
+            const datePicker = document.getElementById('booking_date');
+            if (datePicker) {
+                const today = new Date().toISOString().split('T')[0];
+                datePicker.min = today;
+                datePicker.value = today;
+            }
+
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            document.querySelectorAll('.reveal-on-scroll').forEach(element => {
+                revealObserver.observe(element);
+            });
+        });
+
+        // Image Fail-safe error handler
+        function handleImgError(imgElement, context) {
+            imgElement.onerror = null; // Prevents infinite loop if fallback fails
+            // Inline SVG fallback URL generator
+            const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400">
+                <rect width="600" height="400" fill="#131F33"/>
+                <circle cx="300" cy="170" r="60" fill="#1A2942" stroke="#10b981" stroke-width="4"/>
+                <path d="M 280 150 Q 300 130 320 150 Q 340 170 300 200 Q 260 170 280 150 Z" fill="#10b981"/>
+                <text x="300" y="270" font-family="Outfit, sans-serif" font-size="20" font-weight="bold" fill="#34d399" text-anchor="middle">Paws &amp; Claws Pet Clinic</text>
+                <text x="300" y="300" font-family="Plus Jakarta Sans, sans-serif" font-size="14" fill="#9CA3AF" text-anchor="middle">24/7 Advanced Veterinary Healthcare</text>
+            </svg>`;
+            imgElement.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgContent);
+        }
+
+        function populateServiceDropdown(defaultCategory = 'all') {
+            const serviceInput = document.getElementById('service');
+            if (!serviceInput) {
+                return;
+            }
+
+            const defaultService = servicesCatalog.find(item => defaultCategory === 'all' || item.category === defaultCategory);
+            if (defaultService) {
+                serviceInput.placeholder = `e.g. ${defaultService.name}`;
+            }
+        }
+
+        function truncateText(text, maxLength) {
+            return text.length > maxLength ? `${text.slice(0, maxLength - 1)}…` : text;
+        }
+
+        function createArtwork(title, subtitle, accent = '#10b981', surface = '#131F33') {
+            const safeTitle = truncateText(title, 28);
+            const safeSubtitle = truncateText(subtitle, 36);
+            const svg = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+                    <defs>
+                        <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+                            <stop offset="0%" stop-color="${surface}"/>
+                            <stop offset="100%" stop-color="#0B1320"/>
+                        </linearGradient>
+                        <radialGradient id="glow" cx="50%" cy="35%" r="70%">
+                            <stop offset="0%" stop-color="${accent}" stop-opacity="0.35"/>
+                            <stop offset="100%" stop-color="${accent}" stop-opacity="0"/>
+                        </radialGradient>
+                    </defs>
+                    <rect width="1200" height="800" fill="url(#bg)"/>
+                    <circle cx="890" cy="210" r="260" fill="url(#glow)"/>
+                    <circle cx="320" cy="560" r="210" fill="${accent}" fill-opacity="0.12"/>
+                    <rect x="110" y="110" width="980" height="580" rx="42" fill="#1A2942" fill-opacity="0.88" stroke="${accent}" stroke-opacity="0.25"/>
+                    <rect x="160" y="160" width="360" height="20" rx="10" fill="${accent}" fill-opacity="0.55"/>
+                    <rect x="160" y="210" width="260" height="14" rx="7" fill="#D1FAE5" fill-opacity="0.65"/>
+                    <rect x="160" y="240" width="210" height="14" rx="7" fill="#D1FAE5" fill-opacity="0.45"/>
+                    <circle cx="760" cy="390" r="150" fill="${accent}" fill-opacity="0.18"/>
+                    <path d="M700 420c0-38 28-68 62-68 18 0 35 8 46 21 11-13 28-21 46-21 34 0 62 30 62 68 0 59-108 121-108 121S700 479 700 420z" fill="${accent}" fill-opacity="0.88"/>
+                    <text x="160" y="340" fill="#FFFFFF" font-family="Outfit, Arial, sans-serif" font-size="46" font-weight="700">${safeTitle}</text>
+                    <text x="160" y="395" fill="#A7F3D0" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="24">${safeSubtitle}</text>
+                    <text x="160" y="470" fill="#CBD5E1" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="22">24/7 care • diagnostics • surgery • wellness</text>
+                    <text x="160" y="520" fill="#94A3B8" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="18">Prasanna Pet Care Clinic</text>
+                </svg>`;
+            return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+        }
+
+        function applyPageArtwork() {
+            const artworkMap = [
+                ['hero-image', 'Specialized Veterinary Care', 'Digital diagnostics and ICU suite', '#10b981'],
+                ['doctor-1-image', 'Dr. Sumathi', 'Chief Veterinary Surgeon', '#f59e0b'],
+                ['doctor-2-image', 'Dr. Hari Prasanna', 'Feline & Cardiology Specialist', '#06b6d4'],
+                ['doctor-3-image', 'Dr. Krishna Moorthi', 'Avian & Exotic Animal Specialist', '#60a5fa'],
+            ];
+
+            artworkMap.forEach(([id, title, subtitle, accent]) => {
+                const image = document.getElementById(id);
+                if (image) {
+                    image.src = createArtwork(title, subtitle, accent);
+                }
+            });
+
+            servicesCatalog.forEach((item) => {
+                const accent = item.category === 'dogs' ? '#f59e0b' : item.category === 'cats' ? '#06b6d4' : '#10b981';
+                item.image = createArtwork(item.categoryLabel, item.name, accent);
+            });
+        }
+
+        // SPA Section Switching Logic
+        function navigateToSection(sectionId) {
+            currentSection = sectionId;
+
+            // Hide all sections
+            const sections = document.querySelectorAll('.spa-section');
+            sections.forEach(sec => sec.classList.remove('active'));
+
+            // Show selected section
+            const target = document.getElementById(`sec-${sectionId}`);
+            if (target) {
+                target.classList.add('active');
+            }
+
+            // Update navigation tab highlighted styles
+            const navButtons = document.querySelectorAll('.nav-link');
+            navButtons.forEach(btn => {
+                btn.className = 'nav-link px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 text-gray-300 hover:text-white hover:bg-darkbg-surface';
+            });
+
+            const activeNavBtn = document.getElementById(`nav-btn-${sectionId}`);
+            if (activeNavBtn) {
+                activeNavBtn.className = 'nav-link px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 text-brand-400 bg-brand-500/10 border border-brand-500/30';
+            }
+
+            // Close mobile menu drawer if open
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                toggleMobileMenu();
+            }
+
+            // Scroll smoothly to top of page
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        window.navigateToSection = navigateToSection;
+
+        function goToAdminLogin() {
+            if (window.location.protocol === 'file:') {
+                navigateToSection('about');
+                showToast('Admin login is available when the clinic app is running through Flask.');
+                return;
+            }
+
+            window.location.href = '/admin/login';
+        }
+
+        window.goToAdminLogin = goToAdminLogin;
+
+        function openAppointmentHistory() {
+            if (window.location.protocol === 'file:') {
+                navigateToSection('history');
+                showToast('Open this clinic app through Flask to use the full appointment history page.');
+                return;
+            }
+
+            window.location.href = '/appointment-history';
+        }
+
+        window.openAppointmentHistory = openAppointmentHistory;
+
+        // Mobile drawer menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.className = 'fa-solid fa-xmark text-xl';
+            } else {
+                menu.classList.add('hidden');
+                icon.className = 'fa-solid fa-bars text-xl';
+            }
+        }
+
+        window.toggleMobileMenu = toggleMobileMenu;
+
+        // ---------------------------------------------------
+        // 3. CATALOG DYNAMIC RENDERING & FILTERING
+        // ---------------------------------------------------
+        function renderCatalog() {
+            const grid = document.getElementById('catalog-grid');
+            const noResults = document.getElementById('no-results-msg');
+            grid.innerHTML = '';
+
+            // Filter by category AND search query
+            const filtered = servicesCatalog.filter(item => {
+                const matchesCategory = (activeCategoryFilter === 'all') || (item.category === activeCategoryFilter);
+                const matchesSearch = searchQuery === '' || 
+                    item.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                    item.description.toLowerCase().includes(searchQuery.toLowerCase());
+                return matchesCategory && matchesSearch;
+            });
+
+            if (filtered.length === 0) {
+                grid.classList.add('hidden');
+                noResults.classList.remove('hidden');
+                return;
+            } else {
+                grid.classList.remove('hidden');
+                noResults.classList.add('hidden');
+            }
+
+            filtered.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'glass-card rounded-2xl overflow-hidden flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1.5';
+                
+                card.innerHTML = `
+                    <div>
+                        <div class="relative h-48 overflow-hidden">
+                            <img 
+                                src="${item.image}" 
+                                alt="${item.name}" 
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                onerror="handleImgError(this, '${item.id}')"
+                            >
+                            <div class="absolute inset-0 bg-gradient-to-t from-darkbg-surface via-transparent to-transparent opacity-80"></div>
+                            <span class="absolute top-3 left-3 bg-darkbg/80 backdrop-blur-md text-brand-300 text-xs font-bold px-3 py-1 rounded-full border border-brand-500/30">
+                                ${item.categoryLabel}
+                            </span>
+                            <span class="absolute bottom-3 right-3 bg-brand-500 text-darkbg font-extrabold text-xs px-3 py-1 rounded-full shadow-glow">
+                                ${item.price}
+                            </span>
+                        </div>
+
+                        <div class="p-6 space-y-3">
+                            <h3 class="text-lg font-bold text-white group-hover:text-brand-400 transition-colors leading-snug">${item.name}</h3>
+                            <p class="text-xs text-gray-300 leading-relaxed">${item.description}</p>
+                            
+                            <div class="pt-2 border-t border-gray-800 space-y-1.5">
+                                ${item.features.map(f => `
+                                    <div class="flex items-center text-[11px] text-gray-400">
+                                        <i class="fa-solid fa-circle-check text-brand-400 mr-2 text-xs"></i>
+                                        <span>${f}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="p-6 pt-0">
+                        <button 
+                            onclick="quickBookService('${item.id}', '${item.category}')" 
+                            class="w-full py-2.5 rounded-xl bg-brand-500/10 hover:bg-brand-500 text-brand-400 hover:text-darkbg font-bold text-xs border border-brand-500/30 hover:border-brand-500 transition-all duration-200 flex items-center justify-center gap-2 group-hover:shadow-glow"
+                        >
+                            <i class="fa-solid fa-calendar-plus"></i>
+                            <span>Book This Service</span>
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Category Filter Switcher
+        function filterCategory(categoryKey) {
+            activeCategoryFilter = categoryKey;
+
+            // Highlight tab button
+            const filterBtns = document.querySelectorAll('.cat-filter-btn');
+            filterBtns.forEach(btn => {
+                btn.className = 'cat-filter-btn px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-200 bg-darkbg-card border border-gray-800 text-gray-300 hover:text-white hover:border-gray-700';
+            });
+
+            const activeBtn = document.getElementById(`filter-btn-${categoryKey}`);
+            if (activeBtn) {
+                activeBtn.className = 'cat-filter-btn px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-200 bg-brand-500 text-darkbg shadow-glow';
+            }
+
+            renderCatalog();
+        }
+
+        // Search Input Handler
+        function handleCatalogSearch() {
+            const searchInput = document.getElementById('catalog-search');
+            searchQuery = searchInput.value.trim();
+            renderCatalog();
+        }
+
+        // Reset Filters Button
+        function resetCatalogFilters() {
+            document.getElementById('catalog-search').value = '';
+            searchQuery = '';
+            filterCategory('all');
+        }
+
+        // Shortcut filter trigger from Home Section
+        function filterCatalogFromHome(categoryKey) {
+            navigateToSection('catalog');
+            filterCategory(categoryKey);
+        }
+
+
+        // ---------------------------------------------------
+        // 4. DYNAMIC FORM & APPOINTMENT SUBMISSION
+        // ---------------------------------------------------
+        function quickBookService(serviceId, categoryKey) {
+            const serviceObj = servicesCatalog.find(s => s.id === serviceId);
+
+            navigateToSection('booking');
+
+            if (serviceObj) {
+                const serviceInput = document.getElementById('service');
+                if (serviceInput) {
+                    serviceInput.value = serviceObj.name;
+                }
+            }
+
+            const petTypeInput = document.getElementById('pet_type');
+            if (petTypeInput) {
+                if (categoryKey === 'dogs') {
+                    petTypeInput.value = 'Dog';
+                } else if (categoryKey === 'cats') {
+                    petTypeInput.value = 'Cat';
+                } else {
+                    petTypeInput.value = 'Other';
+                }
+            }
+
+            showToast(`Selected "${serviceObj ? serviceObj.name : 'Service'}" for booking!`);
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+
+            const form = document.getElementById('pet-booking-form');
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            const payload = {
+                owner_name: document.getElementById('owner_name').value.trim(),
+                mobile: document.getElementById('owner_mobile').value.trim(),
+                email: document.getElementById('owner_email').value.trim(),
+                pet_name: document.getElementById('pet_name').value.trim(),
+                pet_type: document.getElementById('pet_type').value.trim(),
+                breed: document.getElementById('breed').value.trim(),
+                age: document.getElementById('age').value.trim(),
+                gender: document.getElementById('gender').value.trim(),
+                weight: document.getElementById('weight').value.trim(),
+                service: document.getElementById('service').value.trim(),
+                appointment_date: document.getElementById('booking_date').value,
+                appointment_time: document.getElementById('booking_time').value,
+                symptoms: document.getElementById('booking_notes').value.trim(),
+            };
+
+            if (window.location.protocol === 'file:') {
+                const demoToken = `DEMO-${Date.now().toString().slice(-6)}`;
+                const resultBox = document.getElementById('booking-result');
+                resultBox.classList.remove('hidden');
+                resultBox.innerHTML = `
+                    <h4 class="font-bold text-white">Booking details saved for demo</h4>
+                    <p class="mt-2">Demo Token Number: <span class="font-extrabold text-white">${demoToken}</span></p>
+                    <p class="mt-1">Run the clinic through Flask to submit this appointment to the server.</p>
+                `;
+                form.reset();
+                document.getElementById('booking_date').value = new Date().toISOString().split('T')[0];
+                return;
+            }
+
+            fetch('/api/book', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+                body: new URLSearchParams(payload).toString()
+            })
+            .then(async (response) => {
+                const result = await response.json();
+                if (!response.ok || !result.success) {
+                    throw new Error(result.error || 'Unable to create appointment.');
+                }
+                const resultBox = document.getElementById('booking-result');
+                resultBox.classList.remove('hidden');
+                resultBox.innerHTML = `
+                    <h4 class="font-bold text-white">Appointment Booked Successfully</h4>
+                    <p class="mt-2">Your Token Number: <span class="font-extrabold text-white">${result.token_number}</span></p>
+                    <p class="mt-1">Please visit the clinic with this token. Status: <span class="font-semibold text-white">Pending</span></p>
+                `;
+                form.reset();
+                document.getElementById('booking_date').value = new Date().toISOString().split('T')[0];
+                if (result.redirect_url) {
+                    window.location.href = result.redirect_url;
+                }
+            })
+            .catch((error) => {
+                const resultBox = document.getElementById('booking-result');
+                resultBox.classList.remove('hidden');
+                resultBox.className = 'mt-6 rounded-2xl border border-rose-500/30 bg-rose-500/10 p-5 text-sm text-rose-300';
+                resultBox.innerHTML = `<h4 class="font-bold text-white">Booking Failed</h4><p class="mt-2">${error.message}</p>`;
+            });
+        }
+
+
+        // ---------------------------------------------------
+        // 5. ADMIN LOGIN MODAL
+        // ---------------------------------------------------
+        // ---------------------------------------------------
+        // 6. TOAST NOTIFICATION UTILITY
+        // ---------------------------------------------------
+        function showToast(message) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'glass-card border border-brand-500/50 text-white px-5 py-3 rounded-2xl shadow-glow text-xs font-bold flex items-center gap-3 transition-all duration-300 pointer-events-auto transform translate-y-2 opacity-0';
+            
+            toast.innerHTML = `
+                <div class="w-6 h-6 rounded-full bg-brand-500 text-darkbg flex items-center justify-center text-xs">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <span>${message}</span>
+            `;
+
+            container.appendChild(toast);
+
+            // Animate in
+            setTimeout(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            }, 50);
+
+            // Remove after 4 seconds
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-2');
+                setTimeout(() => toast.remove(), 300);
+            }, 4000);
+        }
+
+        // ---------------------------------------------------
+        // 7. AI EMERGENCY ASSISTANT
+        // ---------------------------------------------------
+        const chatToggle = document.getElementById('chat-toggle');
+        const chatWidget = document.getElementById('chat-widget');
+        const chatClose = document.getElementById('chat-close');
+        const chatForm = document.getElementById('chat-form');
+        const chatInput = document.getElementById('chat-input');
+        const chatMessages = document.getElementById('chat-messages');
+
+        function addChatMessage(text, isUser = false) {
+            const row = document.createElement('div');
+            row.className = isUser ? 'text-right' : 'text-left';
+            const bubble = document.createElement('div');
+            bubble.className = isUser ? 'inline-block rounded-2xl bg-emerald-500 px-3 py-2 text-[#0B1320] font-semibold' : 'inline-block rounded-2xl bg-[#1A2942] px-3 py-2 text-gray-200';
+            bubble.textContent = text;
+            row.appendChild(bubble);
+            chatMessages.appendChild(row);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function getAssistantReply(message) {
+            const text = message.toLowerCase();
+            const emergencyKeywords = ['heavy bleeding', 'difficulty breathing', 'unconscious', 'poison', 'seizure', 'road accident', 'severe burns', 'bleeding', 'breathing'];
+            if (emergencyKeywords.some(keyword => text.includes(keyword))) {
+                return '🚨 EMERGENCY ALERT\nYour pet may require urgent veterinary attention. Please visit the clinic or the nearest emergency veterinary hospital immediately.\n\nThis AI provides general guidance only and is not a substitute for professional veterinary care. If your pet has a life-threatening emergency, visit the nearest veterinary hospital immediately.';
+            }
+
+            if (text.includes('chocolate')) {
+                return 'If your pet ate chocolate, keep them calm and call a veterinarian right away. Do not induce vomiting unless a vet tells you to.\n\nThis AI provides general guidance only and is not a substitute for professional veterinary care. If your pet has a life-threatening emergency, visit the nearest veterinary hospital immediately.';
+            }
+            if (text.includes('not eating') || text.includes('eating')) {
+                return 'If your pet is not eating, offer fresh water and monitor for vomiting or lethargy. Please contact the clinic if symptoms continue or worsen.\n\nThis AI provides general guidance only and is not a substitute for professional veterinary care. If your pet has a life-threatening emergency, visit the nearest veterinary hospital immediately.';
+            }
+            if (text.includes('vomit') || text.includes('vomiting')) {
+                return 'For vomiting, keep your pet hydrated and avoid feeding rich foods. If vomiting is repeated or severe, contact a veterinarian promptly.\n\nThis AI provides general guidance only and is not a substitute for professional veterinary care. If your pet has a life-threatening emergency, visit the nearest veterinary hospital immediately.';
+            }
+            if (text.includes('fever')) {
+                return 'A fever can be a sign of illness. Keep your pet comfortable, encourage water intake, and seek veterinary advice if it persists.\n\nThis AI provides general guidance only and is not a substitute for professional veterinary care. If your pet has a life-threatening emergency, visit the nearest veterinary hospital immediately.';
+            }
+            if (text.includes('injured') || text.includes('hurt')) {
+                return 'If your pet is injured, keep them calm and limit movement. Avoid home treatment for wounds and seek professional veterinary care if the injury is serious.\n\nThis AI provides general guidance only and is not a substitute for professional veterinary care. If your pet has a life-threatening emergency, visit the nearest veterinary hospital immediately.';
+            }
+            return 'I can help with first-aid guidance, emergency advice, clinic timings, services, vaccinations, and general pet care.\n\nThis AI provides general guidance only and is not a substitute for professional veterinary care. If your pet has a life-threatening emergency, visit the nearest veterinary hospital immediately.';
+        }
+
+        chatToggle.addEventListener('click', () => {
+            chatWidget.classList.toggle('hidden');
+        });
+
+        chatClose.addEventListener('click', () => {
+            chatWidget.classList.add('hidden');
+        });
+
+        document.querySelectorAll('.quick-reply').forEach(button => {
+            button.addEventListener('click', () => {
+                const message = button.getAttribute('data-message');
+                addChatMessage(message, true);
+                addChatMessage(getAssistantReply(message));
+                chatInput.value = '';
+            });
+        });
+
+        chatForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const message = chatInput.value.trim();
+            if (!message) return;
+            addChatMessage(message, true);
+            addChatMessage(getAssistantReply(message));
+            chatInput.value = '';
+        });
+
+        addChatMessage('Hello! I can help with pet first-aid guidance and appointment questions.');
+    </script>
+</body>
+</html>

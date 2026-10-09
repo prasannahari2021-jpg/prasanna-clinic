@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointments | Prasanna Pet Care Clinic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-[#0B1320] text-gray-200">
+    <div class="flex min-h-screen">
+        <aside class="w-72 border-r border-gray-800 bg-[#131F33] p-6">
+            <div class="mb-8">
+                <h1 class="text-xl font-bold text-white">Prasanna Clinic</h1>
+                <p class="text-sm text-emerald-400">Admin Panel</p>
+            </div>
+            <nav class="space-y-2">
+                <a href="/admin/dashboard" class="block rounded-xl px-4 py-3 font-semibold text-gray-300 hover:bg-[#1A2942]">Dashboard</a>
+                <a href="/admin/appointments" class="block rounded-xl bg-emerald-500/20 px-4 py-3 font-semibold text-emerald-400">Appointments</a>
+                <a href="/" target="_blank" class="block rounded-xl px-4 py-3 font-semibold text-gray-300 hover:bg-[#1A2942]">Open Client Website</a>
+                <a href="/admin/logout" class="block rounded-xl px-4 py-3 font-semibold text-gray-300 hover:bg-[#1A2942]">Logout</a>
+            </nav>
+        </aside>
+        <main class="flex-1 p-8">
+            <div class="mb-6 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+                <div>
+                    <h2 class="text-3xl font-bold text-white">Appointment Management</h2>
+                    <p class="text-sm text-gray-400">Search, filter, and update appointments instantly</p>
+                </div>
+                <form method="get" class="flex flex-wrap gap-3">
+                    <input type="text" name="search" value="{{ request.args.get('search','') }}" placeholder="Search owner/token/pet/phone" class="rounded-xl border border-gray-700 bg-[#1A2942] px-4 py-2 text-sm text-white">
+                    <select name="status" class="rounded-xl border border-gray-700 bg-[#1A2942] px-4 py-2 text-sm text-white">
+                        <option value="">All Status</option>
+                        <option value="Pending" {% if request.args.get('status') == 'Pending' %}selected{% endif %}>Pending</option>
+                        <option value="Confirmed" {% if request.args.get('status') == 'Confirmed' %}selected{% endif %}>Confirmed</option>
+                        <option value="Completed" {% if request.args.get('status') == 'Completed' %}selected{% endif %}>Completed</option>
+                        <option value="Cancelled" {% if request.args.get('status') == 'Cancelled' %}selected{% endif %}>Cancelled</option>
+                    </select>
+                    <select name="date_filter" class="rounded-xl border border-gray-700 bg-[#1A2942] px-4 py-2 text-sm text-white">
+                        <option value="">All Dates</option>
+                        <option value="today" {% if request.args.get('date_filter') == 'today' %}selected{% endif %}>Today</option>
+                        <option value="tomorrow" {% if request.args.get('tomorrow') == 'tomorrow' %}selected{% endif %}>Tomorrow</option>
+                        <option value="this_week" {% if request.args.get('date_filter') == 'this_week' %}selected{% endif %}>This Week</option>
+                    </select>
+                    <button type="submit" class="rounded-xl bg-emerald-500 px-4 py-2 font-semibold text-[#0B1320]">Apply</button>
+                </form>
+            </div>
+            <div class="overflow-x-auto rounded-2xl border border-gray-800 bg-[#131F33]">
+                <table class="min-w-full text-sm">
+                    <thead class="bg-[#1A2942] text-left text-gray-300">
+                        <tr>
+                            <th class="px-4 py-3">ID</th>
+                            <th class="px-4 py-3">Token</th>
+                            <th class="px-4 py-3">Owner</th>
+                            <th class="px-4 py-3">Mobile</th>
+                            <th class="px-4 py-3">Pet</th>
+                            <th class="px-4 py-3">Service</th>
+                            <th class="px-4 py-3">Date</th>
+                            <th class="px-4 py-3">Time</th>
+                            <th class="px-4 py-3">Status</th>
+                            <th class="px-4 py-3">Created</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for appointment in appointments %}
+                        <tr class="border-t border-gray-800">
+                            <td class="px-4 py-3">{{ appointment.id }}</td>
+                            <td class="px-4 py-3 font-semibold text-emerald-400">{{ appointment.token_number }}</td>
+                            <td class="px-4 py-3">{{ appointment.owner_name }}</td>
+                            <td class="px-4 py-3">{{ appointment.mobile }}</td>
+                            <td class="px-4 py-3">{{ appointment.pet_name }} ({{ appointment.pet_type }})</td>
+                            <td class="px-4 py-3">{{ appointment.service }}</td>
+                            <td class="px-4 py-3">{{ appointment.appointment_date }}</td>
+                            <td class="px-4 py-3">{{ appointment.appointment_time }}</td>
+                            <td class="px-4 py-3">
+                                <form action="/api/update" method="post" onsubmit="saveAppointmentStatus(event, this)" class="flex items-center gap-2">
+                                    <input type="hidden" name="appointment_id" value="{{ appointment.id }}">
+                                    <select name="status" class="rounded-lg border border-gray-700 bg-[#1A2942] px-2 py-1 text-sm text-white">
+                                        <option value="Pending" {% if appointment.status == 'Pending' %}selected{% endif %}>Pending</option>
+                                        <option value="Confirmed" {% if appointment.status == 'Confirmed' %}selected{% endif %}>Confirmed</option>
+                                        <option value="Completed" {% if appointment.status == 'Completed' %}selected{% endif %}>Completed</option>
+                                        <option value="Cancelled" {% if appointment.status == 'Cancelled' %}selected{% endif %}>Cancelled</option>
+                                    </select>
+                                    <button type="submit" class="rounded-lg bg-emerald-500 px-2 py-1 text-xs font-semibold text-[#0B1320]">Save</button>
+                                </form>
+                            </td>
+                            <td class="px-4 py-3">{{ appointment.created_at }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <div id="save-toast" class="pointer-events-none fixed bottom-5 right-5 z-50 hidden rounded-2xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-sm font-semibold text-emerald-300 shadow-2xl"></div>
+
+    <script>
+        function showSaveToast(message, isError = false) {
+            const toast = document.getElementById('save-toast');
+            if (!toast) {
+                return;
+            }
+
+            toast.textContent = message;
+            toast.classList.remove('hidden', 'border-emerald-500/30', 'bg-emerald-500/10', 'text-emerald-300', 'border-rose-500/30', 'bg-rose-500/10', 'text-rose-300');
+            toast.classList.add(isError ? 'border-rose-500/30' : 'border-emerald-500/30');
+            toast.classList.add(isError ? 'bg-rose-500/10' : 'bg-emerald-500/10');
+            toast.classList.add(isError ? 'text-rose-300' : 'text-emerald-300');
+
+            window.clearTimeout(window.saveToastTimer);
+            window.saveToastTimer = window.setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 2500);
+        }
+
+        async function saveAppointmentStatus(event, form) {
+            event.preventDefault();
+
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalLabel = submitButton ? submitButton.textContent : 'Save';
+
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.textContent = 'Saving...';
+            }
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+                    },
+                    body: new URLSearchParams(new FormData(form)).toString(),
+                });
+
+                const result = await response.json();
+                if (!response.ok || !result.success) {
+                    throw new Error(result.error || 'Unable to save status.');
+                }
+
+                if (result.appointment && result.appointment.status) {
+                    const statusSelect = form.querySelector('select[name="status"]');
+                    if (statusSelect) {
+                        statusSelect.value = result.appointment.status;
+                    }
+                }
+
+                showSaveToast('Appointment status saved.');
+            } catch (error) {
+                showSaveToast(error.message, true);
+            } finally {
+                if (submitButton) {
+                    submitButton.disabled = false;
+                    submitButton.textContent = originalLabel;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

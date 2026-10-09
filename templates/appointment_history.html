@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment History | Prasanna Pet Care Clinic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-[#0B1320] text-gray-200">
+    <div class="mx-auto flex min-h-screen max-w-7xl flex-col px-4 py-8 sm:px-6 lg:px-8">
+        <div class="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+            <div>
+                <p class="text-sm font-semibold uppercase tracking-[0.3em] text-emerald-400">Client Portal</p>
+                <h1 class="text-3xl font-bold text-white">Appointment History</h1>
+                <p class="mt-2 text-sm text-gray-400">Review your booked appointments and the latest status updates.</p>
+            </div>
+            <a href="/appointment" class="rounded-2xl border border-emerald-500/30 bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-300">Book New Appointment</a>
+        </div>
+
+        <div class="rounded-3xl border border-gray-800 bg-[#131F33] p-6 shadow-2xl">
+            <form method="get" action="/appointment-history" class="grid gap-4 md:grid-cols-[1fr_1fr_auto]">
+                <div>
+                    <label class="mb-2 block text-sm font-semibold text-gray-300">Token Number</label>
+                    <input type="text" name="token" value="{{ token_number or '' }}" placeholder="TKN000015" class="w-full rounded-xl border border-gray-700 bg-[#1A2942] px-4 py-3 text-white" />
+                </div>
+                <div>
+                    <label class="mb-2 block text-sm font-semibold text-gray-300">Mobile Number</label>
+                    <input type="text" name="mobile" value="{{ mobile or '' }}" placeholder="9876543210" class="w-full rounded-xl border border-gray-700 bg-[#1A2942] px-4 py-3 text-white" />
+                </div>
+                <button type="submit" class="rounded-2xl bg-emerald-500 px-4 py-3 font-bold text-[#0B1320]">Search History</button>
+            </form>
+
+            {% if appointments %}
+            <div class="mt-6 space-y-4">
+                {% for appointment in appointments %}
+                <div class="rounded-2xl border border-gray-800 bg-[#0B1320] p-5">
+                    <div class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                        <div>
+                            <p class="text-xs uppercase tracking-[0.25em] text-emerald-400">Token Number</p>
+                            <p class="mt-1 text-xl font-bold text-white">{{ appointment.token_number }}</p>
+                        </div>
+                        <div class="rounded-full px-3 py-1 text-sm font-semibold
+                            {% if appointment.status == 'Pending' %}bg-amber-500/15 text-amber-300
+                            {% elif appointment.status == 'Confirmed' %}bg-sky-500/15 text-sky-300
+                            {% elif appointment.status == 'In Progress' %}bg-violet-500/15 text-violet-300
+                            {% elif appointment.status == 'Completed' %}bg-emerald-500/15 text-emerald-300
+                            {% else %}bg-rose-500/15 text-rose-300{% endif %}">
+                            {{ appointment.status }}
+                        </div>
+                    </div>
+
+                    <div class="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+                        <div>
+                            <p class="text-xs uppercase tracking-[0.25em] text-gray-500">Booking Date</p>
+                            <p class="mt-1 text-sm font-semibold text-white">{{ appointment.created_at }}</p>
+                        </div>
+                        <div>
+                            <p class="text-xs uppercase tracking-[0.25em] text-gray-500">Appointment Date</p>
+                            <p class="mt-1 text-sm font-semibold text-white">{{ appointment.appointment_date }}</p>
+                        </div>
+                        <div>
+                            <p class="text-xs uppercase tracking-[0.25em] text-gray-500">Appointment Time</p>
+                            <p class="mt-1 text-sm font-semibold text-white">{{ appointment.appointment_time }}</p>
+                        </div>
+                        <div>
+                            <p class="text-xs uppercase tracking-[0.25em] text-gray-500">Pet Name</p>
+                            <p class="mt-1 text-sm font-semibold text-white">{{ appointment.pet_name }}</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+                        <div>
+                            <p class="text-xs uppercase tracking-[0.25em] text-gray-500">Pet Type</p>
+                            <p class="mt-1 text-sm font-semibold text-white">{{ appointment.pet_type }}</p>
+                        </div>
+                        <div>
+                            <p class="text-xs uppercase tracking-[0.25em] text-gray-500">Service</p>
+                            <p class="mt-1 text-sm font-semibold text-white">{{ appointment.service }}</p>
+                        </div>
+                        <div>
+                            <p class="text-xs uppercase tracking-[0.25em] text-gray-500">Owner</p>
+                            <p class="mt-1 text-sm font-semibold text-white">{{ appointment.owner_name }}</p>
+                        </div>
+                        <div>
+                            <p class="text-xs uppercase tracking-[0.25em] text-gray-500">Mobile</p>
+                            <p class="mt-1 text-sm font-semibold text-white">{{ appointment.mobile }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% elif token_number or mobile %}
+            <div class="mt-6 rounded-2xl border border-amber-500/30 bg-amber-500/10 p-5 text-sm text-amber-200">
+                No matching appointments found. Please try a different token or mobile number.
+            </div>
+            {% else %}
+            <div class="mt-6 rounded-2xl border border-gray-800 bg-[#0B1320] p-6 text-sm text-gray-400">
+                <p class="font-semibold text-white">Search your history</p>
+                <p class="mt-2">Use your token number or mobile number to view all of your past and current appointments.</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

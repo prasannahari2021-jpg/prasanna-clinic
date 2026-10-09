@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Settings | Prasanna Pet Care Clinic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-[#0B1320] text-gray-200">
+    <div class="flex min-h-screen">
+        <aside class="w-72 border-r border-gray-800 bg-[#131F33] p-6">
+            <div class="mb-8">
+                <h1 class="text-xl font-bold text-white">Prasanna Clinic</h1>
+                <p class="text-sm text-emerald-400">Owner Settings</p>
+            </div>
+            <nav class="space-y-2">
+                <a href="/admin/dashboard" class="block rounded-xl px-4 py-3 font-semibold text-gray-300 hover:bg-[#1A2942]">Dashboard</a>
+                <a href="/admin/appointments" class="block rounded-xl px-4 py-3 font-semibold text-gray-300 hover:bg-[#1A2942]">Appointments</a>
+                <a href="/admin/settings" class="block rounded-xl bg-emerald-500/20 px-4 py-3 font-semibold text-emerald-400">Owner Settings</a>
+                <a href="/" target="_blank" class="block rounded-xl px-4 py-3 font-semibold text-gray-300 hover:bg-[#1A2942]">Open Client Website</a>
+                <a href="/admin/logout" class="block rounded-xl px-4 py-3 font-semibold text-gray-300 hover:bg-[#1A2942]">Logout</a>
+            </nav>
+        </aside>
+        <main class="flex-1 p-8">
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold text-white">Owner Settings</h2>
+                <p class="text-sm text-gray-400">Update clinic branding and public-facing information. These changes appear instantly on the client website.</p>
+            </div>
+            <form method="post" class="grid gap-6 rounded-3xl border border-gray-800 bg-[#131F33] p-6 shadow-2xl">
+                <div class="grid gap-4 md:grid-cols-2">
+                    <div>
+                        <label class="mb-2 block text-sm font-semibold text-gray-300">Clinic Name</label>
+                        <input type="text" name="clinic_name" value="{{ settings.clinic_name }}" class="w-full rounded-xl border border-gray-700 bg-[#1A2942] px-4 py-3 text-white" />
+                    </div>
+                    <div>
+                        <label class="mb-2 block text-sm font-semibold text-gray-300">Clinic Logo</label>
+                        <input type="text" name="clinic_logo" value="{{ settings.clinic_logo }}" placeholder="Paste image URL" class="w-full rounded-xl border border-gray-700 bg-[#1A2942] px-4 py-3 text-white" />
+                    </div>
+                    <div>
+                        <label class="mb-2 block text-sm font-semibold text-gray-300">Home Page Banner</label>
+                        <input type="text" name="home_banner" value="{{ settings.home_banner }}" placeholder="Banner text or image URL" class="w-full rounded-xl border border-gray-700 bg-[#1A2942] px-4 py-3 text-white" />
+                    </div>
+                    <div>
+                        <label class="mb-2 block text-sm font-semibold text-gray-300">Customer Dashboard Banner</label>
+                        <input type="text" name="dashboard_banner" value="{{ settings.dashboard_banner }}" placeholder="Banner text or image URL" class="w-full rounded-xl border border-gray-700 bg-[#1A2942] px-4 py-3 text-white" />
+                    </div>
+                    <div>
+                        <label class="mb-2 block text-sm font-semibold text-gray-300">Contact Number</label>
+                        <input type="text" name="contact_number" value="{{ settings.contact_number }}" class="w-full rounded-xl border border-gray-700 bg-[#1A2942] px-4 py-3 text-white" />
+                    </div>
+                    <div>
+                        <label class="mb-2 block text-sm font-semibold text-gray-300">Email Address</label>
+                        <input type="email" name="email_address" value="{{ settings.email_address }}" class="w-full rounded-xl border border-gray-700 bg-[#1A2942] px-4 py-3 text-white" />
+                    </div>
+                    <div>
+                        <label class="mb-2 block text-sm font-semibold text-gray-300">Clinic Address</label>
+                        <input type="text" name="clinic_address" value="{{ settings.clinic_address }}" class="w-full rounded-xl border border-gray-700 bg-[#1A2942] px-4 py-3 text-white" />
+                    </div>
+                    <div>
+                        <label class="mb-2 block text-sm font-semibold text-gray-300">Opening Hours</label>
+                        <input type="text" name="opening_hours" value="{{ settings.opening_hours }}" class="w-full rounded-xl border border-gray-700 bg-[#1A2942] px-4 py-3 text-white" />
+                    </div>
+                    <div>
+                        <label class="mb-2 block text-sm font-semibold text-gray-300">Theme Color</label>
+                        <input type="color" name="theme_color" value="{{ settings.theme_color }}" class="h-12 w-full rounded-xl border border-gray-700 bg-[#1A2942] px-2 py-2" />
+                    </div>
+                    <div>
+                        <label class="mb-2 block text-sm font-semibold text-gray-300">Announcement Banner</label>
+                        <input type="text" name="announcement_banner" value="{{ settings.announcement_banner }}" class="w-full rounded-xl border border-gray-700 bg-[#1A2942] px-4 py-3 text-white" />
+                    </div>
+                    <div class="md:col-span-2">
+                        <label class="mb-2 block text-sm font-semibold text-gray-300">Homepage Images</label>
+                        <textarea name="home_images" rows="3" class="w-full rounded-xl border border-gray-700 bg-[#1A2942] px-4 py-3 text-white" placeholder="Add image URLs separated by commas">{{ settings.home_images }}</textarea>
+                    </div>
+                </div>
+                <button type="submit" class="rounded-2xl bg-emerald-500 px-5 py-3 font-bold text-[#0B1320]">Save Changes</button>
+            </form>
+        </main>
+    </div>
+</body>
+</html>
